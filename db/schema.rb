@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125195643) do
+ActiveRecord::Schema.define(version: 20180125195929) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "card_fields", force: :cascade do |t|
+    t.bigint "card_id"
+    t.bigint "field_id"
+    t.string "name"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_fields_on_card_id"
+    t.index ["field_id"], name: "index_card_fields_on_field_id"
+  end
 
   create_table "cards", force: :cascade do |t|
     t.string "title", null: false
@@ -51,6 +62,8 @@ ActiveRecord::Schema.define(version: 20180125195643) do
     t.index ["organization_id"], name: "index_pipes_on_organization_id"
   end
 
+  add_foreign_key "card_fields", "cards"
+  add_foreign_key "card_fields", "fields"
   add_foreign_key "cards", "phases"
   add_foreign_key "phases", "pipes"
   add_foreign_key "pipes", "organizations"
