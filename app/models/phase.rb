@@ -3,5 +3,7 @@ class Phase < ApplicationRecord
 
   has_many :cards
 
+  has_and_belongs_to_many :fields
+
   validates :name, :pipe, presence: true
 end

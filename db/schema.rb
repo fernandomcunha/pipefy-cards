@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125200940) do
+ActiveRecord::Schema.define(version: 20180125201947) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(version: 20180125200940) do
     t.string "label", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fields_phases", id: false, force: :cascade do |t|
+    t.bigint "phase_id", null: false
+    t.bigint "field_id", null: false
+    t.index ["field_id", "phase_id"], name: "index_fields_phases_on_field_id_and_phase_id"
+    t.index ["phase_id", "field_id"], name: "index_fields_phases_on_phase_id_and_field_id"
   end
 
   create_table "fields_pipes", id: false, force: :cascade do |t|
