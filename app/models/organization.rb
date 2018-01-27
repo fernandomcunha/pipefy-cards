@@ -1,5 +1,5 @@
 class Organization < ApplicationRecord
   has_many :pipes
 
-  validates :name, presence: true
+  validates :name, :api_id, presence: true
 end

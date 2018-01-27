@@ -5,5 +5,5 @@ class Pipe < ApplicationRecord
 
   has_and_belongs_to_many :fields
 
-  validates :name, :organization, presence: true
+  validates :name, :organization, :api_id, presence: true
 end

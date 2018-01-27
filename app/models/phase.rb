@@ -5,5 +5,5 @@ class Phase < ApplicationRecord
 
   has_and_belongs_to_many :fields
 
-  validates :name, :pipe, presence: true
+  validates :name, :pipe, :api_id, presence: true
 end

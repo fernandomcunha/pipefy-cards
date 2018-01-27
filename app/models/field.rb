@@ -1,3 +1,3 @@
 class Field < ApplicationRecord
-  validates :label, presence: true
+  validates :label, :api_id, presence: true
 end
