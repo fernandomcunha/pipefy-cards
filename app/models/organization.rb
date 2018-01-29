@@ -1,5 +1,5 @@
 class Organization < ApplicationRecord
-  has_many :pipes
+  has_many :pipes, dependent: :destroy
 
   validates :name, :api_id, presence: true
 

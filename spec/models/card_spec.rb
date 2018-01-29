@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Card, type: :model do
   describe '#relationships' do
     it { should belong_to(:phase) }
-    it { should have_many(:card_fields) }
+    it { should have_many(:card_fields).dependent(:destroy) }
     it { should have_many(:fields).through(:card_fields) }
   end
 

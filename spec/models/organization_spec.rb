@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Organization, type: :model do
   describe '#relationships' do
-    it { should have_many(:pipes) }
+    it { should have_many(:pipes).dependent(:destroy) }
   end
 
   describe '#validations' do

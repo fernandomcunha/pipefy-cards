@@ -1,5 +1,5 @@
 class Field < ApplicationRecord
-  has_many :card_fields
+  has_many :card_fields, dependent: :destroy
   has_many :cards, through: :card_fields
 
   has_and_belongs_to_many :pipes
