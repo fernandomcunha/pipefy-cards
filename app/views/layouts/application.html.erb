@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-default">
+      <%= link_to 'Home', root_path, input_html = { class: 'navbar-brand' } %>
+    </nav>
+
+    <main role="main" class="container">
+
+      <%= render 'header' %>
+
+      <%= yield %>
+
+    </main>
   </body>
 </html>

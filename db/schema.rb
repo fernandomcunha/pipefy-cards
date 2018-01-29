@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180125201947) do
+ActiveRecord::Schema.define(version: 20180127141926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "card_fields", force: :cascade do |t|
-    t.bigint "card_id"
-    t.bigint "field_id"
-    t.string "name"
-    t.string "value"
+    t.bigint "card_id", null: false
+    t.bigint "field_id", null: false
+    t.string "name", null: false
+    t.string "value", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["card_id"], name: "index_card_fields_on_card_id"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180125201947) do
     t.bigint "phase_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id", null: false
     t.index ["phase_id"], name: "index_cards_on_phase_id"
   end
 
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 20180125201947) do
     t.string "label", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id", null: false
   end
 
   create_table "fields_phases", id: false, force: :cascade do |t|
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180125201947) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id", null: false
   end
 
   create_table "phases", force: :cascade do |t|
@@ -65,6 +68,7 @@ ActiveRecord::Schema.define(version: 20180125201947) do
     t.bigint "pipe_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id", null: false
     t.index ["pipe_id"], name: "index_phases_on_pipe_id"
   end
 
@@ -73,6 +77,7 @@ ActiveRecord::Schema.define(version: 20180125201947) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "api_id", null: false
     t.index ["organization_id"], name: "index_pipes_on_organization_id"
   end
 

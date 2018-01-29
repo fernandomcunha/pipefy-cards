@@ -9,6 +9,8 @@ gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks'
 gem 'httparty'
@@ -30,4 +32,6 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
+  gem 'factory_bot_rails'
+  gem 'database_cleaner'
 end

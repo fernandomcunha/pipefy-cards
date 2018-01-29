@@ -12,4 +12,14 @@ RSpec.describe Pipe, type: :model do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:api_id) }
   end
+
+  describe '#methods' do
+    describe '#all_cards' do
+      it 'should return all cards from a pipe' do
+        organization = create(:organization)
+
+        expect(organization.last_pipe.all_cards.length).to eq(Card.count)
+      end
+    end
+  end
 end

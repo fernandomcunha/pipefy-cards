@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= Card.human_attribute_name :title %></th>
+      <th><%= Pipe.human_attribute_name :phase %></th>
+      <% @organization.all_fields.each do |field| %>
+        <th><%= field.label %></th>
+      <% end %>
+    </tr>
+  </thead>
+  <tbody>
+    <% @organization.last_pipe.all_cards.each do |card| %>
+      <tr>
+        <td><%= card.title %></td>
+        <td><%= card.phase.name %></td>
+        <% @organization.all_fields.each do |field| %>
+          <td><%= card.fields.by_api_id(field.api_id).blank? ? '' : card.card_fields.find_by(field_id: field.id).value %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
